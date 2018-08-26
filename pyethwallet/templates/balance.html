@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Transaction
+{% endblock%}
+
+{% block content%}
+<h3>Transaction</h3>
+<form method="post" action="{% url 'balance' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="keystore">keystore file</label>
+    <input type="file" id="keystore" name="keystore" placeholder="select your keystore file" accept="image/jpeg">
+    <input type="submit" value="commit">
+</form>
+
+{% endblock %}

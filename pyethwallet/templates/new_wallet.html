@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    New wallet
+{% endblock%}
+
+{% block content %}
+    <div class="jumbotron">
+      <h1>Congratulations!</h1>
+      <p>your account address is :{{ address }}</p>
+      <p>To unlock your account both the password and keystore file are needed,click the button below to download your keystore file  </p>
+      <p><a class="btn btn-primary btn-lg" id="download" download="{{ filename }}" role="button">Download</a></p>
+      <p>Try using Google Chrome</p>
+      <p>Right click & save file</p>
+    </div>
+
+    <script>
+        var js_data = {% autoescape off %}{{ keystore }}{% endautoescape %}
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(js_data));
+        var dlAnchorElem = document.getElementById('download');
+        dlAnchorElem.setAttribute("href",     dataStr     );
+    </script>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    New wallet
+{% endblock%}
+
+{% block content %}
+
+<h3>Create New Wallet</h3>
+<form method="post" action="{% url 'wallet' %}">
+    {% csrf_token %}
+    <input type="text" name="password" id="password" placeholder="enter your password" minlength="4" maxlength="16">
+    <input type="submit" value="commit">
+</form>
+
+
+{% endblock%}
+

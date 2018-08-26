@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Transaction
+{% endblock%}
+
+{% block content %}
+<h3>your account is :{{ address }} </h3>
+<h3>your balance is:{{ balance }}</h3>
+
+    {% if balance != 0 %}
+        <form action="{% url 'transaction'%}" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+              <span class="input-group-addon" id="to_address">To</span>
+              <input type="text" name="to_address" class="form-control" placeholder="the recipient address" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">Value</span>
+              <input type="number" name="value" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span class="input-group-addon">ETH</span>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" > Gas </span>
+              <input type="number" name="gas" class="form-control" placeholder="total gas " aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">Gas price</span>
+              <input type="number" name="gas_price" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span class="input-group-addon">gwei</span>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="password">Password</span>
+              <input type="password" name="password" class="form-control" placeholder="your account password" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" value="send transaction">
+        </form>
+    {% endif %}
+
+{% endblock %}
