@@ -12,5 +12,5 @@ It can :
   
   
  
-Warning: who use it takes his own responsibility of lost ether...
+Warning: who use it takes his own responsibility of losing ether or any kind of losses.
   
