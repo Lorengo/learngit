@@ -1,5 +1,4 @@
 import re
-
 from django.shortcuts import render, redirect,reverse
 from django.core.files import File
 import time
@@ -60,21 +59,20 @@ def transaction(request):
         from_address = request.session['from_address']
         to_address = request.POST.get("to_address")
         if dict_keystore and from_address and to_address:
-            print(">>>>>>>", dict_keystore)
             to_address = Web3.toChecksumAddress(to_address)
             # assert Web3.isAddress(to_address),"invalid address"
             value = Web3.toWei(float(request.POST.get("value")),'ether')
-            print("value",value)
+            #print("value",value)
             gas_limit = int(request.POST.get("gas"))
             print("gaslimit",gas_limit)
             gas_price = int(request.POST.get("gas_price"))
             print("gaslimit", gas_price)
             password = request.POST.get("password")
-            print(">>>>>>>>>pw",password)
+            #print(">>>>>>>>>pw",password)
             privatekey = HexBytes(
                 account.Account.decrypt(dict_keystore, password))  ##convert the binary private key to hex type
             pk = privatekey.hex()
-            print(">>>>>>>>>pk",pk)
+            #print(">>>>>>>>>pk",pk)
             txhash_b =send_transaction(from_address,to_address,value,gas_price,gas_limit,pk)
             txhash = HexBytes(txhash_b).hex()
             data = {}
