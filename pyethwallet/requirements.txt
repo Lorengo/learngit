@@ -75,7 +75,7 @@ pytest-watch==4.2.0
 pytest-xdist==1.22.5
 python-dateutil==2.7.3
 pytz==2018.5
-PyYAML==3.13
+PyYAML==5.4
 requests==2.19.1
 rlp==1.0.2
 semantic-version==2.6.0
