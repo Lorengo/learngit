@@ -64,7 +64,7 @@ py-geth==2.0.1
 pycparser==2.18
 pycryptodome==3.6.5
 pyethash==0.1.27
-Pygments==2.2.0
+Pygments==2.7.4
 pylru==1.1.0
 pysha3==1.0.2
 pytest==3.7.1
